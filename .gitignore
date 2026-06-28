@@ -1,0 +1,6 @@
+# IDE config
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
