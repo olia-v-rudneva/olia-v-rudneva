@@ -77,13 +77,13 @@ The final product functions as a unified 5-page analytical report:
 ## Dashboard Previews
 
 ### 1. Academic Performance Overview
-![Model View](bpd_p1.jpg)
+![Model View](bpd_p1.png)
 
 ### 2. Class Performance
-![Class Performance](bpd_p2.jpg)
+![Class Performance](bpd_p2.png)
 
-### 3. Class Details
-![Class Details](bpd_p3.jpg)
+### 3. Analytics & Time Intelligence
+![Analytics View](bpd_p3.png)
 
-### 4. Analytics & Time Intelligence
-![Analytics View](bpd_p4.jpg)
+### 4. Class Details
+![Class Details](bpd_p4.png)

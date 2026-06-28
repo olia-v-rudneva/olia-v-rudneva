@@ -99,7 +99,7 @@ Interactive executive dashboard for sales analysis.
 
 Power BI • DAX • Power Query
 
-[![Academic Performance preview](./projects/academic_performance_overview_dashboard/bpd_p1.jpg)](./projects/academic_performance_overview_dashboard/README.md)
+[![Academic Performance preview](./projects/academic_performance_overview_dashboard/bpd_p1.png)](./projects/academic_performance_overview_dashboard/README.md)
 
 End-to-end Power BI report on student academic performance, built on a star schema with advanced DAX.
 
