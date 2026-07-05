@@ -7,7 +7,7 @@
 ![Power BI](https://img.shields.io/badge/Power%20BI-Projects-yellow)
 ![Data Analytics](https://img.shields.io/badge/Data-Analytics-green)
 
-📄 [Resume (EN)](./cv/CV_DA_Eng_Rudnieva_Olha.pdf) &nbsp;•&nbsp; [Resume (ATS)](./cv/CV_DA_ATS_Rudnieva_Olha.pdf) &nbsp;•&nbsp; [Резюме (UA)](./cv/CV_DA_Ukr_Rudnieva_Olha.pdf) &nbsp;•&nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/olha-rudnieva-2b6838418/) &nbsp;•&nbsp; 📧 [olia.v.rudneva@gmail.com](mailto:olia.v.rudneva@gmail.com)
+📄 [Resume (EN)](./cv/CV_DA_Eng_Rudnieva_Olha.pdf) &nbsp;•&nbsp; [Resume (ATS)](./cv/CV_DA_ATS_Rudnieva_Olha.pdf) &nbsp;•&nbsp; [Резюме (UA)](./cv/CV_DA_Ukr_Rudnieva_Olha.pdf) &nbsp;•&nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/olha-rudnieva/) &nbsp;•&nbsp; 📧 [olia.v.rudneva@gmail.com](mailto:olia.v.rudneva@gmail.com)
 
 Welcome to my Data Analytics portfolio.
 
