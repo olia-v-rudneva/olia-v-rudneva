@@ -7,7 +7,7 @@
 ![Power BI](https://img.shields.io/badge/Power%20BI-Projects-yellow)
 ![Data Analytics](https://img.shields.io/badge/Data-Analytics-green)
 
-📄 [Resume (EN)](./cv/CV_DA_Eng_Rudnieva_Olha.pdf) &nbsp;•&nbsp; [Resume (ATS)](./cv/CV_DA_ATS_Rudnieva_Olha.pdf) &nbsp;•&nbsp; [Резюме (UA)](./cv/CV_DA_Ukr_Rudnieva_Olha.pdf) &nbsp;•&nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/olha-rudnieva/) &nbsp;•&nbsp; 📧 [olia.v.rudneva@gmail.com](mailto:olia.v.rudneva@gmail.com)
+📄 [Resume (EN)](./cv/CV_DA_Eng_Rudnieva_Olha.pdf) &nbsp;•&nbsp; [Resume (ATS)](./cv/CV_DA_ATS_Rudnieva_Olha.pdf) &nbsp;•&nbsp; [Резюме (UA)](./cv/CV_DA_Ukr_Rudnieva_Olha.pdf) &nbsp;•&nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/olha-rudnieva-2b6838418/) &nbsp;•&nbsp; 📧 [olia.v.rudneva@gmail.com](mailto:olia.v.rudneva@gmail.com)
 
 Welcome to my Data Analytics portfolio.
 
@@ -52,6 +52,28 @@ I believe that good analytics is not only about building dashboards—it is abou
 ---
 
 # 📂 Portfolio Projects
+
+## 📢 Marketing Performance Analysis
+
+SQL • PostgreSQL • Tableau
+
+[![Marketing Performance preview](./projects/marketing_performance_analysis/Dashboard.png)](./projects/marketing_performance_analysis/README.md)
+
+Cross-channel analysis of Facebook Ads and Google Ads efficiency, from raw ad logs to an interactive Tableau dashboard.
+
+**Highlights**
+
+* SQL UNION ALL & cross-platform data blending
+* UTM parameter parsing & URL decoding
+* Calculated fields (CTR, CPC, CPM, CPL, ROMI)
+* LOD expressions & interactive parameters
+* Budget reallocation analysis
+
+**Result:** Found a strong 0.78 spend-to-lead correlation and identified `Brand` campaigns as the CPL outlier, recommending budget shift toward lower-cost `Expansion` campaigns.
+
+➡️ [Open Project →](./projects/marketing_performance_analysis/README.md) &nbsp;•&nbsp; 📊 [Live Tableau dashboard](https://public.tableau.com/app/profile/olha.rudnieva/viz/Project2Tableau_17853332767450/MarketingPerformanceDashboard)
+
+---
 
 ## 📊 User Retention & Cohort Analysis
 
@@ -126,6 +148,8 @@ End-to-end Power BI report on student academic performance, built on a star sche
 | Data Studio dashboards & cross-filtering | [Sales Analysis](./projects/sales_analysis_dashboard/README.md) |
 | Star-schema modeling & ETL (Power Query) | [Academic Performance](./projects/academic_performance_overview_dashboard/README.md) |
 | DAX & Time Intelligence (MoM%, YTD)      | [Academic Performance](./projects/academic_performance_overview_dashboard/README.md) |
+| Tableau (LOD, parameters, filter actions) | [Marketing Performance](./projects/marketing_performance_analysis/README.md) |
+| Marketing KPIs (CPL, ROMI) & attribution | [Marketing Performance](./projects/marketing_performance_analysis/README.md) |
 
 ---
 
