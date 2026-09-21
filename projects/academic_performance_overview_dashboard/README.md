@@ -2,12 +2,26 @@
 
 An end-to-end Power BI project that turns raw school grade-book data into an interactive analytical report. It covers the full development lifecycle: multi-source ETL and data cleaning, relational star-schema modeling, DAX measures, interactive report design, and built-in time-intelligence forecasting.
 
+| | |
+| :--- | :--- |
+| **Role** | End-to-end: ETL and data cleaning, star-schema modelling, DAX measures, report build |
+| **Tools** | Power BI Desktop, Power Query, DAX |
+| **Data** | Synthetic training dataset (GoIT Data Analytics course) — six school grade-book CSV exports, graded on the 12-point scale |
+| **Period covered** | September 2025 – February 2026 (2025/26 academic year) |
+| **Deliverable** | 5-page Power BI report as PDF + `.pbix` source file |
+
 🔗 **View the report (PDF):** [Academic_Performance_Overview_Dashboard.pdf](Academic_Performance_Overview_Dashboard.pdf) — full report, no Power BI needed
 📂 **Source file:** [Academic_Performance_Overview_Dashboard.pbix](Academic_Performance_Overview_Dashboard.pbix) — open in Power BI Desktop
+
+## Why this report exists
+
+A principal or head of department has to decide where limited academic support goes, and the grade book alone does not answer that. This report points to the specific class-and-subject combinations that are underperforming (G5B and G8A fall to 5.17–6.33 in particular subjects, while G10A needs nothing), separates weak subject areas from weak assessment formats (formal exams and tests sit below homework everywhere, which is a format problem rather than a curriculum one), and shows whether the December dip is a structural end-of-semester effect or a real decline — the January rebound to 9.13 says it is the former, so the response is exam-period scheduling, not curriculum change.
 
 > **Note:** This project uses school academic data; the same modeling, DAX, and reporting techniques transfer directly to business KPI reporting.
 
 ## Executive Summary
+
+*All grades are on the Ukrainian 12-point scale, where anything below 6 counts as unsatisfactory.*
 
 * **Stable overall performance:** The system-wide **Average Grade is 9.09**. Students score highest on **Homework (9.24)**, while **Exams (8.87)** and **Tests (8.89)** lag slightly — pointing to higher difficulty or pressure during formal evaluations.
 * **Subject-level disparities:** Practical subjects lead the ranking — **Health (9.58)** and **Robotics (9.52)** — while core humanities such as **English Language Arts (8.87)** and **Civics (8.64)** show the lowest averages, flagging areas that may need curriculum adjustment.
@@ -19,32 +33,26 @@ An end-to-end Power BI project that turns raw school grade-book data into an int
 
 ## Project Architecture & Methodology
 
-The development process was executed step-by-step across four main phases:
+### Phase 1: ETL & Data Modeling (Star Schema)
+* Imported six CSV sources — `students`, `classes`, `teachers`, `subjects`, `periods`, and `grades` as the fact table.
+* Cleaned in Power Query: unified date parsing (`en-US` locale), handled missing values, fixed text-in-numeric columns, and tested primary keys for duplicates.
+* Modelled as a star schema with one-to-many, single-direction relationships.
+* Built a `calendar` dimension in DAX with `Year`, `Month`, `Month Number`, and `Year-Month` to drive every time-based aggregation.
 
-### Phase 1: ETL & Relational Data Modeling (Star Schema)
-* **Data Extraction:** Imported raw relational school data from multiple transactional CSV sources: `students`, `classes`, `teachers`, `subjects`, `periods`, and `grades` (the central fact table).
-* **Data Transformation (Power Query):** * Unified date formats using localized parsing parameters (`en-US`).
-  * Validated data integrity by handling missing values, clearing text-to-numerical anomalies, and testing primary keys for duplicates.
-* **Data Modeling:** Constructed a pure **Star Schema** with one-to-many, single-direction cross-filtering relationships. 
-* **Time Dimension (DAX):** Engineered a continuous, dynamic `calendar` dimension table using DAX to drive all time-based aggregations, complete with hierarchical fields: `Year`, `Month`, `Month Number`, and `Year-Month`.
+### Phase 2: Core Visualizations & Interactivity
+* KPI cards for `Average Grade`, `Exam`, `Test`, and `Homework Average Grade`.
+* KPI scorecards excluded from cross-filtering via **Edit Interactions**, so the baseline benchmark stays fixed while the rest of the page responds to selections.
 
-### Phase 2: Core Visualizations & Interactivity Configuration
-* Built a clear overview layout with consistent data formatting and aligned analytical grids.
-* **KPI Metrics:** Formatted key performance cards (`Average Grade`, `Exam Average Grade`, `Test Average Grade`, `Homework Average Grade`) with standardized decimal notation (`0.00`).
-* **Interactivity Controls:** Configured page-level filtering constraints and explicitly isolated KPI scorecards from cross-filtering disruptions via **Edit Interactions** to preserve accurate baseline benchmarks during visual data exploration.
+### Phase 3: DAX Filter-Context Work & Deep-Dive Paths
+* Centralized all measures in a dedicated `_Measures` table.
+* Used `CALCULATE` with `ALL` and `ALLEXCEPT` to control which slicers a measure obeys — for example, ignoring `grade_type` while still respecting class and period filters.
+* **Drill-through** from aggregate visuals to individual student profiles (`Class Details`), preserving the source filter context.
+* **Tooltip pages** for month-over-month detail without adding visuals to the canvas.
 
-### Phase 3: Advanced DAX Context Engineering & Deep-Dive Analytics
-* Developed an independent `_Measures` home table to centralize calculations.
-* **Filter Context Manipulation:** Formatted custom metric calculations using `CALCULATE`, `ALL`, and `ALLEXCEPT` to accurately bypass or respect active slicer criteria (e.g., calculations that ignore specific `grade_type` fields while honoring global academic configurations).
-* **Advanced User Journeys:** * Implemented horizontal, context-preserving **Drill-Through** paths mapping general metrics directly down to granular student profiles (`Class Details`).
-  * Created dynamic visual popups via dedicated **Tooltip Pages** to surface performance variations without cluttering the canvas.
-
-### Phase 4: Time Intelligence, Visual Forecasting & UX Navigation
-* **Built-in Analytics:** Added 25th/75th percentiles, median markers, trend lines, and a 3-month continuous trend prediction model with a 95% confidence interval overlay.
-* **Quick Calculations & Time Intelligence:**
-  * Implemented native percentage-of-total distributions inside structural bar charts.
-  * Generated complex Month-over-Month (`MoM%`) variance measures and Year-to-Date (`YTD`) cumulative runs, cross-validating automated Time-Intelligence functions against manually written DAX calculations (`TOTALYTD`).
-* **UI/UX Standardization:** Deployed an intuitive layout matrix (Header -> Filter Controls -> KPI Grid -> Analysis Panel) paired with an explicit page navigation system that retains active filter contexts across all 5 report views.
+### Phase 4: Time Intelligence & Forecasting
+* Added 25th/75th percentiles, median markers, trend lines, and a 3-month forecast with a 95% confidence interval.
+* Month-over-Month (`MoM%`) variance and Year-to-Date cumulative measures, with the built-in time-intelligence output cross-checked against hand-written `TOTALYTD` DAX.
+* Page navigation across the 5 report views that carries the active filter context with it.
 
 ---
 

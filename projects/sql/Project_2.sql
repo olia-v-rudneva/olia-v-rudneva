@@ -1,5 +1,3 @@
---- тимчасова функція для декодування URL-параметрів (percent-encoding, наприклад %20 -> пробіл) / temporary function for decoding URL parameters (percent-encoding, e.g. %20 -> space)
---- потрібна, щоб коректно витягнути utm_campaign з рядка url_parameters / needed to correctly extract utm_campaign from the url_parameters string
 CREATE OR REPLACE FUNCTION pg_temp.decode_url_part(p varchar)
 RETURNS varchar AS
 $$
@@ -26,8 +24,7 @@ FROM regexp_matches(
 $$ LANGUAGE SQL IMMUTABLE STRICT;
 
 
---- дані Facebook Ads: приєднуємо довідники кампаній та adset, coalesce замінює NULL на 0 / Facebook Ads data: join the campaign and adset reference tables, coalesce replaces NULL with 0
-with facebook_ads as
+with facebook_ads as 
 (
 select
 	fabd.ad_date,
@@ -48,7 +45,6 @@ left join facebook_campaign fc on
 left join facebook_adset fa on
 	fabd.adset_id = fa.adset_id
 ),
---- дані Google Ads: назви кампаній вже є в основній таблиці, довідники не потрібні / Google Ads data: campaign names are already in the main table, no reference tables needed
 google_ads as
 (
 select
@@ -66,7 +62,6 @@ select
 from
 	google_ads_basic_daily gabd 
 ),
---- об'єднуємо обидві платформи в один набір даних через union all / combine both platforms into a single dataset with union all
 ads as
 (
 select
@@ -79,8 +74,6 @@ select
 from
 	google_ads
 )
---- фінальна агрегація: витягуємо utm_campaign регуляркою, 'nan' та NULL приводимо до 'empty', / final aggregation: extract utm_campaign with a regex, map 'nan' and NULL to 'empty',
---- сумуємо метрики в розрізі дата × джерело × кампанія × adset × utm_campaign / sum the metrics by date x source x campaign x adset x utm_campaign
 select
 	ad_date,
 	source,

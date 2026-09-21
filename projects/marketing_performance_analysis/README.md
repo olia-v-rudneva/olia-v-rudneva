@@ -2,6 +2,14 @@
 
 An end-to-end analytical project that evaluates cross-channel marketing efficiency across **Facebook Ads** and **Google Ads**. Raw daily ad logs and campaign metadata are cleaned and unified in **PostgreSQL**, then visualized as an interactive executive dashboard in **Tableau** designed to optimize budget allocation and reduce Cost Per Lead.
 
+| | |
+| :--- | :--- |
+| **Role** | End-to-end: SQL data prep, metric design, dashboard build |
+| **Tools** | PostgreSQL / DBeaver, Tableau Public |
+| **Data** | Synthetic training dataset (GoIT Data Analytics course) — Facebook Ads and Google Ads daily logs |
+| **Period covered** | February 2021 – December 2022 |
+| **Deliverable** | Live Tableau dashboard + SQL query + presentation PDF |
+
 🔗 **Live Dashboard:** [Marketing Performance Dashboard (Tableau Public)](https://public.tableau.com/app/profile/olha.rudnieva/viz/Project2Tableau_17853332767450/MarketingPerformanceDashboard)
 📄 **Presentation:** [Presentation.pdf](Presentation.pdf) — executive summary slides
 

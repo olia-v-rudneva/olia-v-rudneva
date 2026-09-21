@@ -1,7 +1,7 @@
 with users_parsed as
 --- очищення дати в таблиці cohort_users_raw / clean up the raw timestamp strings in cohort_users_raw
 (
-select
+select 
 	u.user_id,
 	u.promo_signup_flag,
 	replace(replace(trim(u.signup_datetime), '/', '-'), '.', '-') as signup_ts
@@ -10,19 +10,19 @@ from
 	cohort_users_raw as u
 ),
 users_parsed_date as (
---- трансформування дати зі строкового формату у формат дати / convert the date from string format into a date type
+--- трансформування дати зі строкового формата у формат дати / convert the date from string format into a date type
 select
 		up.user_id,
 	up.promo_signup_flag,
-		case
+		case 
 			when regexp_match(signup_ts, '^\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{1,2}$') is not null
 		--- перевіряємо, що поле signup_ts відповідає формату / check that the signup_ts field matches the expected format
 	            then TO_DATE(split_part(signup_ts, ' ', 1), 'DD-MM-YYYY')
-		--- з поля signup_ts беремо тільки дату, і отриманий текст перетворюємо в формат дати / take only the date part from signup_ts and cast the resulting text to a date
-		when regexp_match(signup_ts, '^\d{1,2}-\d{1,2}-\d{2} \d{1,2}:\d{1,2}$') is not null
+		--- з поля signup_ts беремо тільки дату, і отриманний текст перетворюємо в формат дати / take only the date part from signup_ts and cast the resulting text to a date
+		when regexp_match(signup_ts, '^\d{1,2}-\d{1,2}-\d{2} \d{1,2}:\d{1,2}$') is not null 
 	            then TO_DATE(split_part(signup_ts, ' ', 1), 'DD-MM-YY')
 		else null
-	end as signup_date
+	end as signup_ts
 from
 		users_parsed as up
 ),
@@ -33,7 +33,7 @@ select
 	e.user_id,
 	e.event_type,
 	replace(replace(trim(e.event_datetime), '/', '-'), '.', '-') as event_ts
-	--- прибираємо зайві пробіли на початку й кінці стоки за допомогою trim, заміняємо різні делімітери за допомогою replace / trim leading and trailing spaces with trim, normalise the different delimiters with replace
+	--- прибираємо зайві пробіли на початку і кінці стоки за допомогою trim, заміняємо різні делімітери за допомогою replace / trim leading and trailing spaces with trim, normalise the different delimiters with replace
 from
 	cohort_events_raw as e
 where
@@ -42,40 +42,40 @@ where
 	and e.event_type is not null
 ),
 events_parsed_date as
---- трансформування дати зі строкового формату у формат дати / convert the date from string format into a date type
+--- трансформування дати зі строкового формата у формат дати / convert the date from string format into a date type
 (
 select
 	ep.user_id,
 	ep.event_type,
-	case
+	case 
 		when regexp_match(event_ts, '^\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{1,2}$') is not null
 		--- перевіряємо, що поле event_ts відповідає формату / check that the event_ts field matches the expected format
             then TO_DATE(split_part(event_ts, ' ', 1), 'DD-MM-YYYY')
-		--- з поля event_ts беремо тільки дату, і отриманий текст перетворюємо у формат дати / take only the date part from event_ts and cast the resulting text to a date
-		when regexp_match(event_ts, '^\d{1,2}-\d{1,2}-\d{2} \d{1,2}:\d{1,2}$') is not null
+		--- з поля event_ts беремо тільки дату, і отриманний текст перетворюємо в формат дати / take only the date part from event_ts and cast the resulting text to a date
+		when regexp_match(event_ts, '^\d{1,2}-\d{1,2}-\d{2} \d{1,2}:\d{1,2}$') is not null 
             then TO_DATE(split_part(event_ts, ' ', 1), 'DD-MM-YY')
 		else null
-	end as event_date
+	end as event_ts
 from
 	events_parsed as ep
 ),
 user_activity as
 ---об'єднання таблиць / join the tables
 (
-select
+select 
 	upd.user_id,
 	upd.promo_signup_flag,
-	date_trunc('month', upd.signup_date)::date as cohort_month,
+	date_trunc('month', upd.signup_ts)::date as cohort_month,
 	epd.event_type,
-	date_trunc('month', epd.event_date)::date as event_month
+	date_trunc('month', epd.event_ts)::date as event_month
 from
 	users_parsed_date upd
 left join events_parsed_date epd on
 	upd.user_id = epd.user_id
 where
-	upd.signup_date is not null
+	upd.signup_ts is not null
 	---прибираємо записи з відсутньою датою реєстрації і відсутньою датою події / drop rows with a missing signup date or a missing event date
-	and epd.event_date is not null
+	and epd.event_ts is not null
 )
 select
 	promo_signup_flag,
@@ -88,7 +88,6 @@ select
 from
 	user_activity
 where
-	--- фіксоване вікно спостереження дослідження: січень–червень 2025 / fixed observation window of the study: January-June 2025
 	event_month between '2025-01-01' and '2025-06-01'
 	---обмежуємо період спостереження / limit the observation period
 group by
