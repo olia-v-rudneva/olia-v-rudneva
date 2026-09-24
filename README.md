@@ -3,15 +3,16 @@
 ## Junior Data Analyst | Economics & Business Analysis | SQL • Tableau • Power BI • Data Visualization
 
 ![Open to Work](https://img.shields.io/badge/Open%20to-Work-success)
+[![GoIT Data Analytics](https://img.shields.io/badge/GoIT-Data%20Analytics%20Certified-orange)](./certificates/Rudnieva_DA.pdf?raw=1)
 ![SQL](https://img.shields.io/badge/SQL-PostgreSQL%20%7C%20BigQuery-blue)
 ![Power BI](https://img.shields.io/badge/Power%20BI-Projects-yellow)
 ![Data Analytics](https://img.shields.io/badge/Data-Analytics-green)
 
-📄 [Resume (EN) ⬇](./cv/CV_DA_Eng_Rudnieva_Olha.pdf?raw=1) &nbsp;•&nbsp; [Resume (ATS) ⬇](./cv/CV_DA_ATS_Rudnieva_Olha.pdf?raw=1) &nbsp;•&nbsp; [Резюме (UA) ⬇](./cv/CV_DA_Ukr_Rudnieva_Olha.pdf?raw=1) &nbsp;•&nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/olha-rudnieva-2b6838418/) &nbsp;•&nbsp; 📊 [Tableau Public](https://public.tableau.com/app/profile/olha.rudnieva/vizzes) &nbsp;•&nbsp; 📧 [olia.v.rudneva@gmail.com](mailto:olia.v.rudneva@gmail.com)
+📄 [Resume (EN) ⬇](./cv/CV_DA_EN_Rudnieva_Olha_202609.pdf?raw=1) &nbsp;•&nbsp; [Resume (ATS) ⬇](./cv/CV_DA_ATS_Rudnieva_Olha_202609.pdf?raw=1) &nbsp;•&nbsp; [Резюме (UA) ⬇](./cv/CV_DA_UA_Rudnieva_Olha_202609.pdf?raw=1) &nbsp;•&nbsp; 💼 [LinkedIn](https://www.linkedin.com/in/olha-rudnieva/) &nbsp;•&nbsp; 📊 [Tableau Public](https://public.tableau.com/app/profile/olha.rudnieva/vizzes) &nbsp;•&nbsp; 📧 [olia.v.rudneva@gmail.com](mailto:olia.v.rudneva@gmail.com)
 
 Welcome to my Data Analytics portfolio.
 
-After more than 20 years of working in economics, financial planning, business reporting, and operational analysis within a large industrial enterprise, I decided to transition into Data Analytics.
+After more than 20 years of working in economics, financial planning, business reporting, and operational analysis within a large industrial enterprise, I decided to transition into Data Analytics. In September 2026 I completed GoIT's 348-hour Data Analytics course ([certificate](./certificates/Rudnieva_DA.pdf?raw=1)); the projects below were built during it.
 
 Throughout my career, I have worked with business data every day—analyzing costs, forecasting performance, preparing management reports, monitoring KPIs, and supporting business decision-making. Today I combine this practical business experience with modern analytical tools such as SQL, Power BI, Tableau, and Data Studio.
 
@@ -188,9 +189,9 @@ Not a case study — the working SQL behind the projects above plus coursework q
 
 ---
 
-# 🚧 In Progress
+# 🚧 Next Projects
 
-The next three projects, each with a written brief before a line of code — scope, data model, metric formulas, and acceptance criteria. Briefs are in Ukrainian.
+Post-course projects I am building now, each with a written brief before a line of code — scope, data model, metric formulas, and acceptance criteria. Briefs are in Ukrainian.
 
 | Project | What it will demonstrate | Brief |
 | :--- | :--- | :--- |
@@ -231,7 +232,8 @@ Volodymyr Dahl East Ukrainian National University
 
 # 📚 Professional Development
 
-* Data Analytics Professional Course — GoIT *(In Progress)*
+* Data Analytics — GoIT, 348 hours, completed Sep 2026 ([certificate ⬇](./certificates/Rudnieva_DA.pdf?raw=1))
+  *SQL (PostgreSQL, BigQuery), Google Sheets, Data Studio (formerly Looker Studio), Power BI, Tableau, Amplitude, Python (pandas, Matplotlib, Seaborn), statistics & A/B testing*
 * Google AI for Business ([certificate ⬇](./certificates/Rudnieva_AI.pdf?raw=1))
 
 ---
